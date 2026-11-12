@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'MoneyMap_v0.2_source_and_docs.zip'
+      - 'MoneyMap_v0.2_GitHub_upload.zip'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -25,9 +25,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Prepare site
         run: |
-          test -f MoneyMap_v0.2_source_and_docs.zip
+          test -f MoneyMap_v0.2_GitHub_upload.zip
           mkdir -p public
-          unzip -q MoneyMap_v0.2_source_and_docs.zip -d extracted
+          unzip -q MoneyMap_v0.2_GitHub_upload.zip -d extracted
           cp -a extracted/MoneyMap/. public/
           touch public/.nojekyll
       - name: Upload Pages artifact
