@@ -6,6 +6,7 @@ on:
     paths:
       - 'MoneyMap_v0.2_GitHub_upload.zip'
       - 'MoneyMap_v0.3_GitHub_upload.zip'
+      - 'MoneyMap_v0.4_GitHub_upload.zip'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -26,7 +27,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Prepare site
         run: |
-          if [ -f MoneyMap_v0.3_GitHub_upload.zip ]; then
+          if [ -f MoneyMap_v0.4_GitHub_upload.zip ]; then
+            PACKAGE=MoneyMap_v0.4_GitHub_upload.zip
+          elif [ -f MoneyMap_v0.3_GitHub_upload.zip ]; then
             PACKAGE=MoneyMap_v0.3_GitHub_upload.zip
           else
             PACKAGE=MoneyMap_v0.2_GitHub_upload.zip
